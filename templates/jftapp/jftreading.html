@@ -5,25 +5,26 @@
 {% block content %}
     {% for paragraph in jft_contents|parasplit %}
         {% if forloop.counter == 1 %}
-            <p class="alignleft" id="content">{{ paragraph|wordslice:"2:5" }}</p>
-            <p class="alignright" id="content">{{ paragraph|wordslice:"5:"}}</p>
+            <p class="alignleft">{{ paragraph|wordslice:"2:5" }}</p>
+            <p class="alignright">{{ paragraph|wordslice:"5:"}}</p>
         {% else %}
             {% if forloop.counter == 2 %}
-                <p class="aligncenter" id="content">{{ paragraph }}</p>
+                <p class="aligncenter">{{ paragraph }}</p>
             {% else %}
                 {% if forloop.counter == 3 %}
                     {% ifnotequal paragraph '                           ----=----' %}
-                        <p class="alignright" id="content">{{ paragraph }}</p>
+                        <p class="alignright">{{ paragraph }}</p>
                     {% endifnotequal %}
                 {% else %}
                     {% ifequal paragraph '                           ----=----' %}
-                        <p class="aligncenter" id="content">{{ paragraph }}</p>
+                        <p class="aligncenter">{{ paragraph }}</p>
                     {% else %}
-                        <p id="content">{{ paragraph }}</p>
+                        <p>{{ paragraph }}</p>
                     {% endifequal %}
                 {% endif %}
             {% endif %}
         {% endif %}
+        <div style="clear: both;"></div>
     {% endfor %}
 {% endblock %}
 
