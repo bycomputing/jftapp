@@ -22,7 +22,7 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 def save_jft(message):
     """Save JFT reading into textfile using email Subject as filename."""
     contents = message.get_payload()[186:-950] # Splice message body.
-    destination = script_path + '/' + download_path + '/' + str(message['Subject']) + '.txt'
+    destination = script_path + '/' + download_path + '/' + str(message['Subject']).rsplit(' ', 1)[0] + '.txt'
     save_to_textfile(contents, destination)
 
 def main():
