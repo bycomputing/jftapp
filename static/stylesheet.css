@@ -9,3 +9,7 @@
 .aligncenter {
     text-align: center;
 }
+
+.clearfloat {
+    clear: both;
+}
