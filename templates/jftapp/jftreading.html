@@ -5,15 +5,17 @@
 {% block content %}
     {% for paragraph in jft_contents|parasplit %}
         {% if forloop.counter == 1 %}
-            <p class="alignleft">{{ paragraph|wordslice:"2:5" }}</p>
-            <p class="alignright">{{ paragraph|wordslice:"5:"}}</p>
+            <time datetime="">
+              <p><strong class="alignleft">{{ paragraph|wordslice:"2:5" }}</strong></p>
+            </time>
+            <p><strong class="alignright">{{ paragraph|wordslice:"5:"}}</strong></p>
         {% else %}
             {% if forloop.counter == 2 %}
-                <p class="aligncenter">{{ paragraph }}</p>
+                <blockquote cite="#"><p class="aligncenter">{{ paragraph }}</p></blockquote>
             {% else %}
                 {% if forloop.counter == 3 %}
                     {% ifnotequal paragraph '                           ----=----' %}
-                        <p class="alignright">{{ paragraph }}</p>
+                        <em class="alignright">{{ paragraph }}</em>
                     {% endifnotequal %}
                 {% else %}
                     {% ifequal paragraph '                           ----=----' %}
@@ -26,9 +28,4 @@
         {% endif %}
         <div class="clearfloat"></div>
     {% endfor %}
-{% endblock %}
-
-{% block footer %}
-  <hr>
-  <p id="footer">Copyright (c) 1991-2009 by Narcotics Anonymous World Services, Inc. All Rights Reserved</p>
 {% endblock %}

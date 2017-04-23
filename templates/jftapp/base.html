@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <!--
-Serenity Prayer
-"God, grant me the serenity to accept the things I cannot change,
-the courage to change 
-the things I can, 
-and the wisdom 
-to know the difference."
-    -->
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Unknown" />
+    <meta name="description" content="" />
     <title>Just for Today{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/static/stylesheet.css">
-</head>
-<body>
+  </head>
+  <body>
     <h1>Just for Today</h1>
-    {% block content %}{% endblock %}
-    {% block footer %}
+    <main>      
+        {% block content %}{% endblock %}    
+    </main>
     <hr>
-    <p class="footer">Thanks for visiting our site.</p>
+    {% block footer %}  
+    <footer>
+      <p class="aligncenter" id="footer">
+      Copyright (c) 1991-2009 by 
+      <a href="http://www.na.org/">Narcotics Anonymous World Services, Inc.</a>
+      All Rights Reserved</p>    
+    </footer>
     {% endblock %}
-</body>
+  </body>
 </html>
