@@ -1,5 +1,11 @@
 html {
     font-family: 'Roboto', sans-serif;
+    background-color: lightsteelblue;
+    line-height: 1.5;
+}
+
+h1 {
+    text-shadow: 4px 4px 5px gray;    
 }
 
 .alignleft {
