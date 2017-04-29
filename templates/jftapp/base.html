@@ -9,18 +9,45 @@
     <link rel="stylesheet" href="/static/stylesheet.css">
   </head>
   <body>
-    <h1>Just for Today</h1>
-    <main>      
-        {% block content %}{% endblock %}    
-    </main>
-    <hr>
-    {% block footer %}  
+    <header>
+      <h1><a href="/jft">Just For Today</a></h1>    
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/jft">Home</a> |</li>
+	     <li><a href="/jft/index">Index</a> |</li>
+        <li><a href="/jft/about">About</a></li>      
+      </ul>
+      <form>
+        <input type="search" name="q" placeholder="Search query">
+        <input type="submit" value="Go!">
+      </form>
+    </nav>
+    <aside>
+      <h3>Months</h3>
+      <ul>
+        <li><a href="/jft/jan">January</a></li>
+        <li><a href="/jft/feb">February</a></li>
+        <li><a href="/jft/mar">March</a></li>
+        <li><a href="/jft/apr">April</a></li>
+        <li><a href="/jft/may">May</a></li>
+        <li><a href="/jft/jun">June</a></li>
+        <li><a href="/jft/jul">July</a></li>
+        <li><a href="/jft/aug">August</a></li>
+        <li><a href="/jft/sep">September</a></li>
+        <li><a href="/jft/oct">October</a></li>
+        <li><a href="/jft/nov">November</a></li>
+        <li><a href="/jft/dec">December</a></li>
+      </ul>
+    </aside>
+    <main>
+      {% block main %}{% endblock %}
+    </main>      
     <footer>
-      <p class="aligncenter" id="footer">
-      Copyright (c) 1991-2009 by 
-      <a href="http://www.na.org/">Narcotics Anonymous World Services, Inc.</a>
-      All Rights Reserved</p>    
+      {% block footer%}
+        <hr>
+        <a>This site is powered by Python</a>      
+      {% endblock %}                
     </footer>
-    {% endblock %}
   </body>
 </html>

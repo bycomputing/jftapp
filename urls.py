@@ -1,7 +1,10 @@
-from django.conf.urls.defaults import *
-from mysite.jftapp import views
+from django.conf.urls import *
+from jftapp import views
 
-urlpatterns = patterns('',
-    url(r'^$', views.todays_reading),
-    url(r'^(?P<month>\w{3})/(?P<day>\d\d)/$', views.page_date),
-    )
+urlpatterns = [ 
+    url(r'^$', views.home),
+    url(r'^index/$', views.index),
+    url(r'^about/$', views.about),
+    url(r'^(?P<month>\w{3})/$', views.by_month),
+    url(r'^(?P<month>\w{3})/(?P<day>\d\d)/$', views.by_date),
+    ]

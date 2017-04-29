@@ -1,0 +1,12 @@
+{% extends "jftapp/home.html" %}
+{% load jftapp_extras %}
+
+{% block title %} | Index{% endblock %}
+{% block section %}
+  <h2>Index</h2>
+  <ul>
+    {% for page in pages %}
+      <li><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
+    {% endfor %}  
+  </ul>        
+{% endblock %}

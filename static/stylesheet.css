@@ -1,11 +1,48 @@
-html {
+body, html {
     font-family: 'Roboto', sans-serif;
     background-color: lightsteelblue;
     line-height: 1.5;
+    width: 100%
 }
 
-h1 {
+h1 { 
+	 text-align: center;
     text-shadow: 4px 4px 5px gray;    
+}
+
+h1 a {
+    outline: none;
+	 text-decoration: none;
+}
+
+footer {  
+  text-align: center;
+}
+
+/* nav {
+  float: left;
+  width: 20%;
+} */
+
+aside {
+  float: left;
+  width: 20%
+}
+
+section {
+  background: white;
+  padding: 15px;
+  float: left;
+  width: 60%;
+  overflow: auto;
+}
+
+nav li {
+  display: inline;
+} 
+
+footer {
+  clear: both;
 }
 
 .alignleft {

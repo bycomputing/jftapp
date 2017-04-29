@@ -1,0 +1,34 @@
+{% extends "jftapp/home.html" %}
+{% load jftapp_extras %}
+
+{% block section %}
+  <h2>Today's Reading</h2>        
+  {% for content in page.contents|parasplit %}
+    {% if forloop.counter == 2 %}
+      <time datetime="">
+        <p><strong class="alignleft">{{ content|wordslice:"2:5" }}</strong></p>
+      </time>
+      <p><strong class="alignright">{{ content|wordslice:"5:"}}</strong></p>
+      <br>
+      <br>            
+    {% else %}
+      {% if forloop.counter == 3 %}
+        <blockquote cite="#"><p class="aligncenter">{{ content }}</p></blockquote>
+      {% else %}
+        {% if forloop.counter == 4 %}
+          {% ifnotequal content '                           ----=----' %}
+            <em class="alignright">{{ content }}</em>
+          {% endifnotequal %}
+        {% else %}
+          {% ifequal content '                           ----=----' %}
+            <p class="aligncenter">{{ content }}</p>
+          {% else %}
+            <p>{{ content }}</p>
+          {% endifequal %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+      <div class="clearfloat"></div>
+  {% endfor %}
+{% endblock %}
+

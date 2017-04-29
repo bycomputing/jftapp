@@ -1,4 +1,4 @@
 from django.contrib import admin
-from models import JFTReading
+from jftapp.models import Page
 
-admin.site.register(JFTReading)
+admin.site.register(Page)

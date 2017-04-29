@@ -1,2 +1,4 @@
+*.*~
 *.pyc
-downloads
+__pycache__
+migrations
