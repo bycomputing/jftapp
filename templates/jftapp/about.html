@@ -1,7 +1,14 @@
-{% extends "jftapp/base.html" %}
+{% extends "jftapp/home.html" %}
 {% load jftapp_extras %}
 
 {% block title %} | About{% endblock %}
-{% block main %}        
-  <h2>About</h2>
+{% block heading %}About{% endblock %}
+{% block section %}
+  <p>This website is created and maintained by Ryan Salvador.<p>
+  <p>Source code is available on <a href="https://github.com/bycomputing/jftapp" >GitHub</a>
+  and is released under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" >GNU General Public License Version 3</a>.</p> 
+  <p><strong>IMPORTANT: </strong>Contents from this website are from the author's personal
+  subscription to <em><a href="http://www.jftna.org/jft-subscription.htm" >Just For Today: Daily Meditations</a></em>
+  and are copyrighted materials by <a href="http://www.na.org/">Narcotics Anonymous World Services, Inc.</a></p>
+  <p>All Rights Reserved.</p>
 {% endblock %}

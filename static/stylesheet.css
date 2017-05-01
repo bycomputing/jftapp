@@ -60,3 +60,7 @@ footer {
 .clearfloat {
     clear: both;
 }
+
+#error {
+    color: red;
+}

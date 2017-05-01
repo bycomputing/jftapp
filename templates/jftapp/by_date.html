@@ -1,8 +1,9 @@
 {% extends "jftapp/home.html" %}
 {% load jftapp_extras %}
 
-{% block section %}
-  <h2>Today's Reading</h2>        
+{% block title %} | Bird's-Eye View {% endblock %}
+{% block heading %}Bird's-Eye View{% endblock %}
+{% block contents %}     
   {% for content in page.contents|parasplit %}
     {% if forloop.counter == 2 %}
       <time datetime="">

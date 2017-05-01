@@ -1,10 +1,10 @@
 {% extends "jftapp/base.html" %}
 {% load jftapp_extras %}
 
-{% block main %}
-  <section>
-  {% block section %}
-    <h2>Today's Reading</h2>        
+{% block heading %}Today's Reading{% endblock %}</h2>
+{% block section %}
+  <div id="contents">
+  {% block contents %}            
     {% for content in page.contents|parasplit %}
       {% if forloop.counter == 2 %}
         <time datetime="">
@@ -33,10 +33,12 @@
         <div class="clearfloat"></div>
     {% endfor %}
   {% endblock %}
+  </div>
+  {% block copyright_footer %}
     <hr>
     <p class="aligncenter" id="footer">
     Copyright (c) 1991-2016 by 
     <a href="http://www.na.org/">Narcotics Anonymous World Services, Inc.</a>
-    All Rights Reserved</p>
-  </section>  
+    All Rights Reserved</p>  
+  {% endblock %}
 {% endblock %}

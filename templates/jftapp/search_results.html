@@ -1,0 +1,18 @@
+{% extends "jftapp/index.html" %}
+{% load jftapp_extras %}
+
+{% block title %} | Page Search {% endblock %}
+{% block heading %}Page Search{% endblock %}
+{% block contents %}  
+    <p>You searched for: <strong>{{ query }}</strong></p>
+    {% if pages %}
+      <p>Found {{ pages|length }} page{{ pages|pluralize }}.</p>
+      <ul>        
+      {% for page in pages %}
+        <li><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No pages matched your criteria.</p>
+    {% endif %}
+{% endblock %}

@@ -1,9 +1,9 @@
-{% extends "jftapp/home.html" %}
+{% extends "jftapp/index.html" %}
 {% load jftapp_extras %}
 
 {% block title %} | {{ month_name }} {% endblock %}
-{% block section %}
-  <h2>JFT Readings for {{ month_name }}</h2>
+{% block heading %}{{ month_name }}{% endblock %}
+{% block contents %}  
     <ul>        
       {% for page in pages %}
         <li><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>

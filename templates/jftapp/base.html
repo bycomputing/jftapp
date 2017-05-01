@@ -18,6 +18,9 @@
 	     <li><a href="/jft/index">Index</a> |</li>
         <li><a href="/jft/about">About</a></li>      
       </ul>
+      {% if error %}
+        <p id="error">Please submit a search term.</p>
+      {% endif %}
       <form>
         <input type="search" name="q" placeholder="Search query">
         <input type="submit" value="Go!">
@@ -41,7 +44,12 @@
       </ul>
     </aside>
     <main>
-      {% block main %}{% endblock %}
+      {% spaceless %}
+        {% block main %}
+          <h2>{% block heading %}{% endblock %}</h2>
+          <section>{% block section %}{% endblock %}</section>
+        {% endblock %}
+      {% endspaceless %}
     </main>      
     <footer>
       {% block footer%}
