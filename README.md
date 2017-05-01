@@ -1,53 +1,55 @@
-# Just for Today application
-A Django application that adds a Just for Today reading by NA to your Django website.
+# JFTApp (Just For Today Application): A Django Application
 
-###Requirements:
+This is the source code for the [*Just For Today Web Application*](https://justfortoday.pythonanywhere.com/).
 
- - [Just for Today Daily Meditation Subscriptions](http://www.na.org/?ID=jft-sub)
- - [jftapp_extras](https://github.com/jftreading/jftapp_extras)
- - Python 2
- - Django version 1.3.7
+## Requirements:
+**Python==3.5** or later version  
+**Django==1.11.0** or later version  
 
-###Installation:
+## Dependency:
+[*jftapp_extras*](https://github.com/bycomputing/jftapp_extras.git/) for custom Django template filters
 
-Simply add `jftapp` and `jftapp_extras` to your INSTALLED_APPS and configure your urls.py:
+## Installation:
+1. Create your project and download source.  
+    `$ django-admin.py startproject yoursite`  
+    `$ cd yoursite`  
+    `$ git clone https://github.com/bycomputing/jftapp`  
+    `$ git clone https://github.com/bycomputing/jftapp_extras`  
 
-        urlpatterns = patterns('',
-            # Examples:
-            # url(r'^$', 'mysite.views.home', name='home'),
-            # url(r'^mysite/', include('mysite.foo.urls')),
-        
-            # Uncomment the admin/doc line below to enable admin 
-    documentation:
-            # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-        
-            # Uncomment the next line to enable the admin:
-            # url(r'^admin/', include(admin.site.urls)),
-            url(r'^jft/', include('mysite.jftapp.urls')), # Assuming mysite is your project's name.
+2. Configure your `urls.py` to include `jftapp.urls`.
+    ~~~~
+    from django.conf.urls import url, include
+    from django.contrib import admin
 
-Update runscript.py with your email login information. If you haven't 
-changed the default download_path, make sure to make a downloads 
-directory inside jftapp.
+    urlpatterns = [
+        url(r'^admin/', admin.site.urls),
+        url(r'^jft/', include('jftapp.urls')),
+    ]
+    ~~~~
+    **Note:** Don't forget to `import include`
+ 
+3. Install the model. Edit your `settings.py` and add `jftapp` and `jftapp_extras` to your `INSTALLED_APPS`.
+    ~~~~
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'jftapp',
+        'jftapp_extras',
+    ]
+    ~~~~
 
-Download all emails with:
+4. Configure your database or leave the default SQLite.
 
-    $ python runscript.py -a
+5. Sync database.  
+   `$ python manage.py makemigrations jftapp`  
+   `$ python manage.py migrate`  
 
-If you don't have all the emails yet, you can create a scheduled task 
-which runs: 
+6. Populate the database.  
+   `$ cd jftapp/tools`  
+   `$ python populate.py --settings=yoursite.settings`  
 
-    $ python runscript.py # without the -a argument
-
-adjusted to the time an email subscription would be received.
-
-###Usage:
-
-To view Today's reading:
-
-*mysite.com/jft*
-
-or to search for a specific date:
-
-*mysite.com/jft/jan/11*
-
-
+7. You will be able to view your JFT Django App by visiting your IP plus the URL `/jft/`.
