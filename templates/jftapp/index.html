@@ -4,9 +4,9 @@
 {% block title %} | Index{% endblock %}
 {% block heading %}Index{% endblock %}
 {% block contents %}
-  <ul>
+  <ul class="list-group">
     {% for page in pages %}
-      <li><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
+      <li class="list-group-item"><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
     {% endfor %}  
   </ul>        
 {% endblock %}

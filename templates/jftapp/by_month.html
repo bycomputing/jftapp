@@ -3,10 +3,3 @@
 
 {% block title %} | {{ month_name }} {% endblock %}
 {% block heading %}{{ month_name }}{% endblock %}
-{% block contents %}  
-    <ul>        
-      {% for page in pages %}
-        <li><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
-      {% endfor %}
-    </ul>
-{% endblock %}

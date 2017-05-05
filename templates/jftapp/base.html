@@ -2,59 +2,75 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Unknown" />
     <meta name="description" content="" />
     <title>Just for Today{% block title %}{% endblock %}</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="/static/stylesheet.css">
   </head>
-  <body>
-    <header>
-      <h1><a href="/jft">Just For Today</a></h1>    
-    </header>
-    <nav>
-      <ul>
-        <li><a href="/jft">Home</a> |</li>
-	     <li><a href="/jft/index">Index</a> |</li>
-        <li><a href="/jft/about">About</a></li>      
-      </ul>
-      {% if error %}
-        <p id="error">Please submit a search term.</p>
-      {% endif %}
-      <form>
-        <input type="search" name="q" placeholder="Search query">
-        <input type="submit" value="Go!">
-      </form>
-    </nav>
-    <aside>
-      <h3>Months</h3>
-      <ul>
-        <li><a href="/jft/jan">January</a></li>
-        <li><a href="/jft/feb">February</a></li>
-        <li><a href="/jft/mar">March</a></li>
-        <li><a href="/jft/apr">April</a></li>
-        <li><a href="/jft/may">May</a></li>
-        <li><a href="/jft/jun">June</a></li>
-        <li><a href="/jft/jul">July</a></li>
-        <li><a href="/jft/aug">August</a></li>
-        <li><a href="/jft/sep">September</a></li>
-        <li><a href="/jft/oct">October</a></li>
-        <li><a href="/jft/nov">November</a></li>
-        <li><a href="/jft/dec">December</a></li>
-      </ul>
-    </aside>
-    <main>
+  <body>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>    
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a id="logo" class="navbar-brand" href="/jft">Just For Today</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">            
+            <li><a href="/jft">Home</a></li>
+            <li><a href="/jft/index">Index</a></li>
+            <li><a href="/jft/about">About</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" name="q" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>        
+  <div class="container-fluid">
+    <div class="row">
+      <main class="col-sm-9">
       {% spaceless %}
         {% block main %}
           <h2>{% block heading %}{% endblock %}</h2>
           <section>{% block section %}{% endblock %}</section>
         {% endblock %}
       {% endspaceless %}
-    </main>      
+      </main>
+      <aside class="col-sm-3">
+        <h2>Months</h2>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="/jft/jan">January</a></li>
+            <li class="list-group-item"><a href="/jft/feb">February</a></li>
+            <li class="list-group-item"><a href="/jft/mar">March</a></li>
+            <li class="list-group-item"><a href="/jft/apr">April</a></li>
+            <li class="list-group-item"><a href="/jft/may">May</a></li>
+            <li class="list-group-item"><a href="/jft/jun">June</a></li>
+            <li class="list-group-item"><a href="/jft/jul">July</a></li>
+            <li class="list-group-item"><a href="/jft/aug">August</a></li>
+            <li class="list-group-item"><a href="/jft/sep">September</a></li>
+            <li class="list-group-item"><a href="/jft/oct">October</a></li>
+            <li class="list-group-item"><a href="/jft/nov">November</a></li>
+            <li class="list-group-item"><a href="/jft/dec">December</a></li>
+          </ul>
+      </aside>  
+    </div>
+  </div>   
     <footer>
       {% block footer%}
         <hr>
-        <a>This site is powered by Python</a>      
+        <p>This site is powered by Python</p>      
       {% endblock %}                
     </footer>
   </body>

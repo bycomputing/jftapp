@@ -19,7 +19,7 @@
         {% else %}
           {% if forloop.counter == 4 %}
             {% ifnotequal content '                           ----=----' %}
-              <em class="alignright">{{ content }}</em>
+              <p class="alignright">{{ content }}</p>
             {% endifnotequal %}
           {% else %}
             {% ifequal content '                           ----=----' %}
