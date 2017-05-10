@@ -8,5 +8,16 @@
     {% for page in pages %}
       <li class="list-group-item"><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
     {% endfor %}  
-  </ul>        
+  </ul>
+  {% if show_paginator %}
+    <div class="paginator">
+      {% if has_prev %}
+        <a href="?page={{ prev_page }}">&laquo; Previous </a>
+      {% endif %}
+      {% if has_next %}
+        <a href="?page={{ next_page }}">Next &raquo;</a>
+      {% endif %}
+      (Page {{ page }} of {{ num_pages }})
+    </div>
+  {% endif %}
 {% endblock %}

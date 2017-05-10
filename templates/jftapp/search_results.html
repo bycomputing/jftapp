@@ -6,12 +6,23 @@
 {% block contents %}  
     <p>You searched for: <strong>{{ query }}</strong></p>
     {% if pages %}
-      <p>Found {{ pages|length }} page{{ pages|pluralize }}.</p>
-      <ul>        
+      <p>Found {{ orig_pages|length }} page{{ orig_pages|pluralize }}.</p>
+      <ul class="list-group">        
       {% for page in pages %}
-        <li><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
+        <li class="list-group-item"><a href="/jft/{{ page.date|date:'M'|lower }}/{{ page.date|date:'d'}}" >{{ page.heading }}</a></li>
       {% endfor %}
       </ul>
+      {% if show_paginator %}
+        <div class="paginator">
+          {% if has_prev %}
+	  <a href="?page={{ prev_page }}&q={{ query }}">&laquo; Previous</a>  
+          {% endif %}
+          {% if has_next %}
+	  <a href="?page={{ next_page }}&q={{ query }}">Next &raquo;</a>
+          {% endif %}
+          (Page {{ page }} of {{ num_pages }})
+        </div>
+      {% endif %}
     {% else %}
       <p>No pages matched your criteria.</p>
     {% endif %}
